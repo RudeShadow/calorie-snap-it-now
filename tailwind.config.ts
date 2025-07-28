@@ -18,7 +18,17 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				heading: ['Nunito', 'sans-serif'],
+				body: ['Open Sans', 'sans-serif'],
+				sans: ['Open Sans', 'sans-serif'],
+			},
 			colors: {
+				petsy: {
+					coral: 'hsl(var(--petsy-coral))',
+					blue: 'hsl(var(--petsy-blue))',
+					dark: 'hsl(var(--petsy-dark))',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
