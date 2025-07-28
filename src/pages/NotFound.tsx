@@ -5,10 +5,15 @@ const NotFound = () => {
   const location = useLocation();
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
+    // Enhanced error logging with security considerations
+    const isProduction = import.meta.env.PROD;
+    const sanitizedPath = isProduction 
+      ? location.pathname.replace(/[<>"/\\&]/g, '') 
+      : location.pathname;
+    
+    if (!isProduction) {
+      console.error("404 Error: User attempted to access non-existent route:", sanitizedPath);
+    }
   }, [location.pathname]);
 
   return (
